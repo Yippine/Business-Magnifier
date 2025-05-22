@@ -1,0 +1,19 @@
+# 依賴目錄
+**/node_modules/
+
+# 構建輸出
+**/dist/
+**/.next/
+**/out/
+
+# 大型生成文件
+**/package-lock.json
+**/yarn.lock
+
+# 緩存
+**/.cache/
+**/tsconfig.tsbuildinfo
+
+# 如果只在一個專案上工作，可以考慮暫時忽略另一個
+# legacy/
+# next/
