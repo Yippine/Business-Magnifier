@@ -100,17 +100,15 @@
     "//【推薦】一鍵還原資料並重建索引": "",
     "db:full-restore": "npm run db:restore && npm run db:init",
     "// 列出所有 Collections": "",
-    "db:list": "node scripts/db-list-collections.js",
+    "db:list-collections": "node ./scripts/db-list-collections.js",
     "// 分析並列出所有備份檔案": "",
     "db:analyze-backups": "node ./scripts/db-analyze-backups.js",
-    "// --- 維護 ---": "",
     "// 清理快取資料": "",
-    "db:clean": "node ./scripts/db-maintenance.js --scope=cache",
+    "db:clean": "tsx ./scripts/db-maintenance.js --scope=cache",
     "// 🗺️ SITEMAP (網站地圖管理)": "",
-    "// 在開發模式下測試 Sitemap 產生與快取": "",
-    "sitemap:test": "node scripts/sitemap-monitor.js test",
+    "// 在開發模式下測試 Sitemap 產生與快取": "node ./scripts/sitemap-generator.js",
     "// 啟動 Sitemap 監控器 (背景執行)": "",
-    "sitemap:monitor": "node scripts/sitemap-monitor.js monitor",
+    "sitemap:monitor": "node ./scripts/sitemap-monitor.js",
     "// 停止 Sitemap 監控器": "",
     "sitemap:stop": "node scripts/sitemap-monitor.js stop",
     "// 檢查 Sitemap 監控器狀態": "",
@@ -126,7 +124,7 @@
     "// --- 健康檢查與部署 ---": "",
     "// 執行應用程式健康檢查": "",
     "health:check": "node scripts/healthcheck.js",
-    "// 部署到生產環境": "",
+    // 部署到生產環境": "",
     "deploy:prod": "bash scripts/deploy-prod.sh"
   },
   "dependencies": {
@@ -167,6 +165,7 @@
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "tailwindcss": "^3.4.1",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.2"
   }
 }
