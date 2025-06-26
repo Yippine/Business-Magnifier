@@ -4,6 +4,8 @@ import fs from 'fs/promises';
 import path from 'path';
 import { Collection } from 'mongodb';
 
+export const dynamic = 'force-dynamic';
+
 async function getLatestBackupInfo() {
   const backupDir = path.join(process.cwd(), 'db', 'backups');
   try {

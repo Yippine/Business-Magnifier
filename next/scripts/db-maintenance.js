@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 
-const path = require('path');
-// 在所有其他代碼之前加載環境變數，並明確指定 .env.local 的路徑
-require('dotenv').config({ path: path.resolve(__dirname, '..', '.env.local') });
-
 const mongoose = require('mongoose');
+const path = require('path');
+
+// 這行是所有問題的根源，它汙染了由 Docker 提供的標準環境變數。
+// 腳本應該總是信賴其執行環境，而不是試圖從特定檔案加載設定。
+// require('dotenv').config({ path: path.resolve(__dirname, '..', '.env.local') });
+
+const connectDB = require('../src/lib/database/connection').default;
 
 // 從環境變數讀取 MongoDB 連線 URI
 const MONGODB_URI = process.env.MONGODB_URI;
